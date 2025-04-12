@@ -42,7 +42,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // Função para inicializar o jogo de adivinhação
     function inicializarJogoAdivinhacao() {
         const numeroAleatorio = Math.floor(Math.random() * 50) + 1; // Gera um número entre 1 e 50
-        let tentativasRestantes = 5;
+        let tentativasRestantes = 6;
         const inputPalpite = document.getElementById('palpite');
         const btnPalpite = document.getElementById('btn-palpite');
         const resultado = document.getElementById('resultado');
