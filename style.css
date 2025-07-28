@@ -238,3 +238,26 @@ footer {
         width: 100%;
     }
 }
+.repos-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    margin-top: 1rem;
+}
+
+.repo-card {
+    background-color: #222;
+    border-radius: 8px;
+    padding: 1rem;
+    flex: 1 1 280px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.5);
+}
+
+.repo-card h3 a {
+    color: #61dafb;
+    text-decoration: none;
+}
+
+.repo-card h3 a:hover {
+    text-decoration: underline;
+}
