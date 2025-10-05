@@ -150,7 +150,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
 let lastScrollTop = 0;
 
-window.addEventListener("button", function () {
+window.addEventListener("scroll", function () {
     const header = document.querySelector("header");
     const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
 
@@ -162,5 +162,6 @@ window.addEventListener("button", function () {
 
     lastScrollTop = scrollTop <= 0 ? 0 : scrollTop;
 }, false);
+
 
 
