@@ -1,4 +1,4 @@
-/* Reset básico */
+
 * {
     margin: 0;
     padding: 0;
@@ -11,55 +11,50 @@ html {
 }
 
 body {
-    font-family: 'Roboto', sans-serif;
-    background-color: #121212;
-    color: #f0f0f0;
+    font-family: 'Inter', 'Roboto', sans-serif;
+    background-color: #0e0e11;
+    color: #e8e8f2;
     line-height: 1.6;
 }
 
-/* Container padrão */
 .container {
     max-width: 1000px;
     margin: 0 auto;
     padding: 2rem 1rem;
 }
 
-/* Cabeçalho */
-/* Cabeçalho com auto-hide */
 header {
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
-    background: #1e1e1e;
+    background: #1a1b20;
     padding: 1rem 0;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.5);
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.4);
     z-index: 1000;
-    transition: transform 0.3s ease;
+    transition: top 0.3s ease, background 0.3s ease;
 }
 
 header.hide {
-    transform: translateY(-100%);
+    top: -100px;
 }
 
-/* Espaço para evitar que o conteúdo fique coberto */
 body {
-    padding-top: 140px; /* ajustado para altura do cabeçalho */
+    padding-top: 90px;
 }
 
 header h1 {
     font-size: 2rem;
     font-weight: 700;
-    color: #61dafb;
+    color: #6ef1e7;
 }
 
 header h2 {
     font-size: 1rem;
     font-weight: 400;
-    color: #ccc;
+    color: #b0b0c0;
 }
 
-/* Navegação */
 nav ul {
     display: flex;
     flex-wrap: wrap;
@@ -70,24 +65,24 @@ nav ul {
 
 nav ul li a {
     text-decoration: none;
-    color: #bbb;
-    background: #2c2c2c;
+    color: #b0b0c0;
+    background: #23242a;
     padding: 0.5rem 1rem;
-    border-radius: 8px;
-    transition: background 0.3s, color 0.3s;
+    border-radius: 10px;
+    transition: background 0.3s, color 0.3s, transform 0.2s;
 }
 
 nav ul li a:hover,
 nav ul li a.active {
-    background: #61dafb;
-    color: #000;
-    font-weight: bold;
+    background: #6ef1e7;
+    color: #0e0e11;
+    font-weight: 600;
+    transform: scale(1.05);
 }
 
-/* Seções */
 section.container {
     display: none;
-    animation: fade 0.5s ease-in-out;
+    animation: fade 0.4s ease-in-out;
 }
 section.container.active {
     display: block;
@@ -100,13 +95,13 @@ section.container.active {
 
 section h2 {
     font-size: 1.8rem;
-    color: #61dafb;
+    color: #6ef1e7;
     margin-bottom: 1rem;
 }
 
 section h3 {
     margin-top: 1rem;
-    color: #ccc;
+    color: #b0b0c0;
 }
 
 section ul {
@@ -118,13 +113,12 @@ section li {
     margin-bottom: 0.5rem;
 }
 
-/* GitHub Card */
 .github-card {
-    background: #1a1a1a;
-    border-radius: 10px;
+    background: #1a1b20;
+    border-radius: 12px;
     padding: 1rem;
     margin-top: 1rem;
-    box-shadow: 0 0 10px rgba(0,0,0,0.3);
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.4);
 }
 
 .github-icon {
@@ -132,10 +126,9 @@ section li {
     height: 24px;
     vertical-align: middle;
     margin-right: 0.5rem;
-    fill: #61dafb;
+    fill: #6ef1e7;
 }
 
-/* Lista de linguagens */
 .lang-list ul {
     list-style: none;
     padding: 0;
@@ -154,7 +147,6 @@ section li {
     margin-right: 8px;
 }
 
-/* Contatos */
 .icon-list {
     display: flex;
     justify-content: center;
@@ -168,21 +160,22 @@ section li {
 
 .icon-list a {
     font-size: 2rem;
-    color: #61dafb;
-    transition: transform 0.3s ease;
+    color: #6ef1e7;
+    transition: transform 0.3s ease, color 0.3s ease;
 }
 
 .icon-list a:hover {
     transform: scale(1.2);
+    color: #4bd3c2;
 }
 
-/* Jogo */
 #jogo-adivinhacao {
-    background: #1a1a1a;
+    background: #1a1b20;
     padding: 1rem;
-    border-radius: 10px;
+    border-radius: 12px;
     margin-top: 1rem;
     text-align: center;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.4);
 }
 
 .game-controls {
@@ -194,36 +187,64 @@ section li {
     width: 60%;
     border: none;
     border-radius: 5px;
+    background: #23242a;
+    color: #e8e8f2;
     margin-bottom: 0.5rem;
 }
 
 button {
-    background-color: #61dafb;
-    color: #000;
+    background-color: #6ef1e7;
+    color: #0e0e11;
     padding: 0.5rem 1rem;
     border: none;
     margin: 0.3rem;
     border-radius: 8px;
     cursor: pointer;
     font-weight: bold;
-    transition: background 0.3s ease;
+    transition: background 0.3s ease, transform 0.2s ease;
 }
 
 button:hover {
-    background-color: #4fc3f7;
+    background-color: #4bd3c2;
+    transform: scale(1.05);
 }
 
-/* Rodapé */
+/* Repositórios */
+.repos-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    margin-top: 1rem;
+}
+
+.repo-card {
+    background-color: #1a1b20;
+    border-radius: 10px;
+    padding: 1rem;
+    flex: 1 1 280px;
+    box-shadow: 0 0 12px rgba(0, 0, 0, 0.4);
+}
+
+.repo-card h3 a {
+    color: #6ef1e7;
+    text-decoration: none;
+}
+
+.repo-card h3 a:hover {
+    text-decoration: underline;
+}
+
+
 footer {
-    background: #1e1e1e;
+    background: #1a1b20;
     text-align: center;
     padding: 1rem;
     margin-top: 2rem;
     font-size: 0.9rem;
-    color: #aaa;
+    color: #b0b0c0;
+    border-top: 1px solid #2a2a2f;
 }
 
-/* Responsividade */
 @media (max-width: 768px) {
     nav ul {
         flex-direction: column;
@@ -237,27 +258,4 @@ footer {
     #palpite {
         width: 100%;
     }
-}
-.repos-container {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 1rem;
-    margin-top: 1rem;
-}
-
-.repo-card {
-    background-color: #222;
-    border-radius: 8px;
-    padding: 1rem;
-    flex: 1 1 280px;
-    box-shadow: 0 0 10px rgba(0,0,0,0.5);
-}
-
-.repo-card h3 a {
-    color: #61dafb;
-    text-decoration: none;
-}
-
-.repo-card h3 a:hover {
-    text-decoration: underline;
 }
