@@ -21,9 +21,7 @@ async function carregarRepositorios() {
     const linguagens = {};
 
     repos.forEach(repo => {
-      if (repo.language) {
-        linguagens[repo.language] = (linguagens[repo.language] || 0) + 1;
-      }
+      if (repo.language) linguagens[repo.language] = (linguagens[repo.language] || 0) + 1;
 
       const repoCard = document.createElement("div");
       repoCard.className = "repo-card";
@@ -56,9 +54,7 @@ async function carregarRepositorios() {
       },
       options: {
         responsive: true,
-        plugins: {
-          legend: { labels: { color: "#fff" } }
-        }
+        plugins: { legend: { labels: { color: "#fff" } } }
       }
     });
   } catch (error) {
@@ -72,6 +68,7 @@ function gerarCorAleatoria() {
   return `#${Math.floor(Math.random() * 16777215).toString(16).padStart(6, '0')}`;
 }
 
+/* ===================== JOGO ===================== */
 let numeroAleatorio = Math.floor(Math.random() * 50) + 1;
 let tentativas = 5;
 
@@ -114,7 +111,7 @@ document.getElementById("btn-reiniciar").addEventListener("click", () => {
   document.getElementById("btn-reiniciar").style.display = "none";
 });
 
-/* Navegação de seções */
+/* ===================== NAVEGAÇÃO ===================== */
 document.querySelectorAll('nav a').forEach(link => {
   link.addEventListener('click', (e) => {
     e.preventDefault();
@@ -124,14 +121,15 @@ document.querySelectorAll('nav a').forEach(link => {
     document.querySelectorAll('section.container').forEach(section => {
       section.classList.remove('active');
     });
-
     targetSection.classList.add('active');
 
     document.querySelectorAll('nav a').forEach(navLink => {
       navLink.classList.remove('active');
     });
-
     link.classList.add('active');
+
+    // Faz a rolagem suave até o topo do conteúdo
+    window.scrollTo({ top: 0, behavior: 'smooth' });
   });
 });
 
@@ -140,19 +138,18 @@ document.addEventListener("DOMContentLoaded", () => {
   document.querySelector('section#Sobre').classList.add('active');
 });
 
-/* Header auto-hide */
+/* ===================== HEADER AUTO-HIDE ===================== */
 let lastScrollTop = 0;
 window.addEventListener("scroll", function () {
   const header = document.querySelector("header");
   const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
-  const scrollable = document.documentElement.scrollHeight > window.innerHeight;
 
-  if (scrollable) {
-    if (scrollTop > lastScrollTop && scrollTop > 100) header.classList.add("hide");
-    else header.classList.remove("hide");
+  if (scrollTop > lastScrollTop && scrollTop > 120) {
+    header.classList.add("hide");
   } else {
     header.classList.remove("hide");
   }
 
   lastScrollTop = scrollTop <= 0 ? 0 : scrollTop;
 });
+
