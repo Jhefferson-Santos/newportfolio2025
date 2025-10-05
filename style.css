@@ -15,23 +15,17 @@ body {
   background-color: #0d1117;
   color: #e6edf3;
   line-height: 1.6;
-  padding-top: 110px; /* compensação exata para o header fixo */
+  padding-top: 90px; /* Espaço pro header fixo */
 }
 
-/* Container padrão */
-.container {
-  max-width: 1000px;
-  margin: 0 auto;
-  padding: 2rem 1rem;
-}
-
-/* Cabeçalho fixo e moderno */
+/* Cabeçalho fixo e translúcido */
 header {
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
-  background: #161b22;
+  backdrop-filter: blur(6px);
+  background: rgba(22, 27, 34, 0.9);
   padding: 0.8rem 0;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
   z-index: 1000;
@@ -44,7 +38,7 @@ header.hide {
 }
 
 header h1 {
-  font-size: 1.7rem;
+  font-size: 1.6rem;
   font-weight: 700;
   color: #58a6ff;
 }
@@ -62,6 +56,7 @@ nav ul {
   list-style: none;
   margin-top: 0.8rem;
   gap: 0.5rem;
+  justify-content: center;
 }
 
 nav ul li a {
@@ -84,101 +79,53 @@ nav ul li a.active {
 /* Seções */
 section.container {
   display: none;
-  animation: fade 0.5s ease-in-out;
+  opacity: 0;
+  transform: translateY(15px);
+  transition: opacity 0.5s ease, transform 0.4s ease;
+  min-height: 70vh;
 }
 
 section.container.active {
   display: block;
+  opacity: 1;
+  transform: translateY(0);
 }
 
-@keyframes fade {
-  from {
-    opacity: 0;
-    transform: translateY(10px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
+/* Títulos */
 section h2 {
   font-size: 1.8rem;
   color: #58a6ff;
   margin-bottom: 1rem;
 }
 
-section h3 {
+/* Cards de projetos */
+.repos-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
   margin-top: 1rem;
-  color: #c9d1d9;
 }
 
-section ul {
-  list-style: disc;
-  padding-left: 1.5rem;
-}
-
-section li {
-  margin-bottom: 0.5rem;
-}
-
-/* GitHub Card */
-.github-card {
-  background: #161b22;
-  border-radius: 10px;
+.repo-card {
+  background-color: #161b22;
+  border-radius: 8px;
   padding: 1rem;
-  margin-top: 1rem;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+  flex: 1 1 280px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.4);
+  transition: transform 0.2s ease;
 }
 
-.github-icon {
-  width: 24px;
-  height: 24px;
-  vertical-align: middle;
-  margin-right: 0.5rem;
-  fill: #58a6ff;
+.repo-card:hover {
+  transform: translateY(-5px);
 }
 
-/* Lista de linguagens */
-.lang-list ul {
-  list-style: none;
-  padding: 0;
-}
-
-.lang-list li {
-  margin: 0.3rem 0;
-  display: flex;
-  align-items: center;
-}
-
-.lang-color {
-  width: 12px;
-  height: 12px;
-  border-radius: 50%;
-  margin-right: 8px;
-}
-
-/* Contatos */
-.icon-list {
-  display: flex;
-  justify-content: center;
-  gap: 1.5rem;
-  margin-top: 1rem;
-}
-
-.icon-list li {
-  list-style: none;
-}
-
-.icon-list a {
-  font-size: 2rem;
+.repo-card h3 a {
   color: #58a6ff;
-  transition: transform 0.3s ease, color 0.3s ease;
+  text-decoration: none;
 }
 
-.icon-list a:hover {
-  transform: scale(1.2);
-  color: #79c0ff;
+.repo-card h3 a:hover {
+  text-decoration: underline;
 }
 
 /* Jogo */
@@ -190,10 +137,7 @@ section li {
   text-align: center;
 }
 
-.game-controls {
-  margin: 1rem 0;
-}
-
+/* Inputs e botões */
 #palpite {
   padding: 0.5rem;
   width: 60%;
@@ -221,34 +165,27 @@ button:hover {
   transform: scale(1.05);
 }
 
-/* Repositórios */
-.repos-container {
+/* Contatos */
+.icon-list {
   display: flex;
-  flex-wrap: wrap;
-  gap: 1rem;
+  justify-content: center;
+  gap: 1.5rem;
   margin-top: 1rem;
 }
 
-.repo-card {
-  background-color: #161b22;
-  border-radius: 8px;
-  padding: 1rem;
-  flex: 1 1 280px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
-  transition: transform 0.2s ease;
+.icon-list li {
+  list-style: none;
 }
 
-.repo-card:hover {
-  transform: translateY(-5px);
-}
-
-.repo-card h3 a {
+.icon-list a {
+  font-size: 2rem;
   color: #58a6ff;
-  text-decoration: none;
+  transition: transform 0.3s ease, color 0.3s ease;
 }
 
-.repo-card h3 a:hover {
-  text-decoration: underline;
+.icon-list a:hover {
+  transform: scale(1.2);
+  color: #79c0ff;
 }
 
 /* Rodapé */
@@ -277,6 +214,6 @@ footer {
   }
 
   body {
-    padding-top: 130px; /* mais espaço para header em telas pequenas */
+    padding-top: 120px;
   }
 }
