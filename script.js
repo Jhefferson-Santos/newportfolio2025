@@ -1,3 +1,6 @@
+// ===============================
+// 1️⃣ Carregar Repositórios do GitHub
+// ===============================
 async function carregarRepositorios() {
     const username = "Jhefferson-Santos";
     const apiUrl = `https://api.github.com/users/${username}/repos`;
@@ -27,7 +30,6 @@ async function carregarRepositorios() {
                 linguagens[repo.language] = (linguagens[repo.language] || 0) + 1;
             }
 
-            // Cria um cartão com link clicável para o repo no GitHub
             const repoCard = document.createElement("div");
             repoCard.className = "repo-card";
             repoCard.innerHTML = `
@@ -45,11 +47,10 @@ async function carregarRepositorios() {
             languageList.appendChild(li);
         });
 
-        // Ajuste do tamanho do gráfico (menor)
         chartCanvas.style.maxWidth = "300px";
         chartCanvas.style.maxHeight = "300px";
 
-        const chart = new Chart(chartCanvas, {
+        new Chart(chartCanvas, {
             type: "pie",
             data: {
                 labels: Object.keys(linguagens),
@@ -62,9 +63,7 @@ async function carregarRepositorios() {
                 responsive: true,
                 plugins: {
                     legend: {
-                        labels: {
-                            color: "#fff"
-                        }
+                        labels: { color: "#fff" }
                     }
                 }
             }
@@ -81,6 +80,9 @@ function gerarCorAleatoria() {
     return `#${Math.floor(Math.random() * 16777215).toString(16).padStart(6, '0')}`;
 }
 
+// ===============================
+// 2️⃣ Mini Jogo de Adivinhação
+// ===============================
 let numeroAleatorio = Math.floor(Math.random() * 50) + 1;
 let tentativas = 5;
 
@@ -123,6 +125,9 @@ document.getElementById("btn-reiniciar").addEventListener("click", () => {
     document.getElementById("btn-reiniciar").style.display = "none";
 });
 
+// ===============================
+// 3️⃣ Navegação entre seções
+// ===============================
 document.querySelectorAll('nav a').forEach(link => {
     link.addEventListener('click', (e) => {
         e.preventDefault();
@@ -143,25 +148,40 @@ document.querySelectorAll('nav a').forEach(link => {
     });
 });
 
+// ===============================
+// 4️⃣ Inicialização
+// ===============================
 document.addEventListener("DOMContentLoaded", () => {
     carregarRepositorios();
     document.querySelector('section#Sobre').classList.add('active');
 });
 
+// ===============================
+// 5️⃣ Header dinâmico (corrigido)
+// ===============================
 let lastScrollTop = 0;
 
 window.addEventListener("scroll", function () {
     const header = document.querySelector("header");
     const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
 
-    if (scrollTop > lastScrollTop) {
-        header.classList.add("hide");
+    // Verifica se há rolagem suficiente na página
+    const scrollable = document.documentElement.scrollHeight > window.innerHeight;
+
+    if (scrollable) {
+        if (scrollTop > lastScrollTop) {
+            header.classList.add("hide");
+        } else {
+            header.classList.remove("hide");
+        }
     } else {
         header.classList.remove("hide");
     }
 
     lastScrollTop = scrollTop <= 0 ? 0 : scrollTop;
 }, false);
+
+
 
 
 
