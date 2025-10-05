@@ -15,7 +15,7 @@ body {
   background-color: #0d1117;
   color: #e6edf3;
   line-height: 1.6;
-  padding-top: 90px; /* Espaço pro header fixo */
+  padding-top: 110px; /* compensação exata para o header fixo */
 }
 
 /* Container padrão */
@@ -32,7 +32,7 @@ header {
   left: 0;
   width: 100%;
   background: #161b22;
-  padding: 1rem 0;
+  padding: 0.8rem 0;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
   z-index: 1000;
   transition: transform 0.3s ease;
@@ -44,13 +44,13 @@ header.hide {
 }
 
 header h1 {
-  font-size: 2rem;
+  font-size: 1.7rem;
   font-weight: 700;
   color: #58a6ff;
 }
 
 header h2 {
-  font-size: 1rem;
+  font-size: 0.9rem;
   font-weight: 400;
   color: #8b949e;
 }
@@ -60,7 +60,7 @@ nav ul {
   display: flex;
   flex-wrap: wrap;
   list-style: none;
-  margin-top: 1rem;
+  margin-top: 0.8rem;
   gap: 0.5rem;
 }
 
@@ -275,6 +275,8 @@ footer {
   #palpite {
     width: 100%;
   }
+
+  body {
+    padding-top: 130px; /* mais espaço para header em telas pequenas */
+  }
 }
-
-
