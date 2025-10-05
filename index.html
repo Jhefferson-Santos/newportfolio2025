@@ -24,6 +24,28 @@
     <link rel="stylesheet" href="style.css" />
     <!-- Importa o arquivo de estilos CSS -->
 </head>
+    <script>
+let lastScrollTop = 0;
+
+window.addEventListener("scroll", function () {
+  const header = document.querySelector("header");
+  const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+  const scrollable = document.documentElement.scrollHeight > window.innerHeight;
+
+  if (scrollable) {
+    if (scrollTop > lastScrollTop && scrollTop > 100) {
+      header.classList.add("hide"); // Esconde ao descer
+    } else {
+      header.classList.remove("hide"); // Mostra ao subir
+    }
+  } else {
+    header.classList.remove("hide"); // Se não há rolagem, mantém visível
+  }
+
+  lastScrollTop = scrollTop <= 0 ? 0 : scrollTop;
+});
+</script>
+
 <body>
     <header>
         <div class="container">
@@ -198,6 +220,7 @@
     <!-- Importa o arquivo JavaScript personalizado -->
 </body>
 </html>
+
 
 
 
