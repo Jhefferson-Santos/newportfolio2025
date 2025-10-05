@@ -38,7 +38,7 @@ body {
   background: linear-gradient(135deg, var(--bg-primary) 0%, #0f1428 100%);
   color: var(--text-primary);
   line-height: 1.7;
-  padding-top: 90px;
+  padding-top: 0; /* Remove padding-top since header is no longer fixed */
   min-height: 100vh;
 }
 
@@ -51,9 +51,7 @@ body {
 
 /* ===== CABEÇALHO FIXO ===== */
 header {
-  position: fixed;
-  top: 0;
-  left: 0;
+  /* Removed position: fixed; to make it scroll with the page */
   width: 100%;
   background: rgba(21, 25, 51, 0.95);
   backdrop-filter: blur(10px);
@@ -559,7 +557,7 @@ footer i {
 /* ===== RESPONSIVIDADE ===== */
 @media (max-width: 768px) {
   body {
-    padding-top: 100px;
+    padding-top: 0; /* Remove padding-top since header is no longer fixed */
   }
 
   .header-text h1 {
@@ -615,7 +613,7 @@ footer i {
 
 @media (max-width: 480px) {
   body {
-    padding-top: 110px;
+    padding-top: 0; /* Remove padding-top since header is no longer fixed */
   }
 
   .header-text h1 {
