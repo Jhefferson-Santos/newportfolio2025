@@ -1,6 +1,4 @@
-// ===============================
-// 1️⃣ Carregar Repositórios do GitHub
-// ===============================
+
 async function carregarRepositorios() {
     const username = "Jhefferson-Santos";
     const apiUrl = `https://api.github.com/users/${username}/repos`;
@@ -80,9 +78,6 @@ function gerarCorAleatoria() {
     return `#${Math.floor(Math.random() * 16777215).toString(16).padStart(6, '0')}`;
 }
 
-// ===============================
-// 2️⃣ Mini Jogo de Adivinhação
-// ===============================
 let numeroAleatorio = Math.floor(Math.random() * 50) + 1;
 let tentativas = 5;
 
@@ -125,9 +120,7 @@ document.getElementById("btn-reiniciar").addEventListener("click", () => {
     document.getElementById("btn-reiniciar").style.display = "none";
 });
 
-// ===============================
-// 3️⃣ Navegação entre seções
-// ===============================
+
 document.querySelectorAll('nav a').forEach(link => {
     link.addEventListener('click', (e) => {
         e.preventDefault();
@@ -148,24 +141,17 @@ document.querySelectorAll('nav a').forEach(link => {
     });
 });
 
-// ===============================
-// 4️⃣ Inicialização
-// ===============================
 document.addEventListener("DOMContentLoaded", () => {
     carregarRepositorios();
     document.querySelector('section#Sobre').classList.add('active');
 });
 
-// ===============================
-// 5️⃣ Header dinâmico (corrigido)
-// ===============================
 let lastScrollTop = 0;
 
 window.addEventListener("scroll", function () {
     const header = document.querySelector("header");
     const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
 
-    // Verifica se há rolagem suficiente na página
     const scrollable = document.documentElement.scrollHeight > window.innerHeight;
 
     if (scrollable) {
@@ -180,6 +166,7 @@ window.addEventListener("scroll", function () {
 
     lastScrollTop = scrollTop <= 0 ? 0 : scrollTop;
 }, false);
+
 
 
 
