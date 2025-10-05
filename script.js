@@ -1,6 +1,6 @@
 // ===== VARIÁVEIS GLOBAIS =====
-let lastScrollTop = 0;
-const scrollThreshold = 100;
+const menuToggle = document.getElementById('menuToggle');
+const mainNav = document.getElementById('mainNav');
 
 // ===== FUNÇÃO PARA CARREGAR REPOSITÓRIOS DO GITHUB =====
 async function carregarRepositorios() {
@@ -149,6 +149,23 @@ function gerarCorAleatoria() {
     return `#${Math.floor(Math.random() * 16777215).toString(16).padStart(6, '0')}`;
 }
 
+// ===== TOGGLE DO MENU =====
+function toggleMenu() {
+    mainNav.classList.toggle('active');
+    
+    // Alterar ícone do botão
+    const icon = menuToggle.querySelector('i');
+    if (mainNav.classList.contains('active')) {
+        icon.classList.remove('fa-bars');
+        icon.classList.add('fa-times');
+        menuToggle.setAttribute('aria-label', 'Fechar menu de navegação');
+    } else {
+        icon.classList.remove('fa-times');
+        icon.classList.add('fa-bars');
+        menuToggle.setAttribute('aria-label', 'Abrir menu de navegação');
+    }
+}
+
 // ===== NAVEGAÇÃO ENTRE SEÇÕES =====
 function configurarNavegacao() {
     document.querySelectorAll('nav a').forEach(link => {
@@ -171,11 +188,12 @@ function configurarNavegacao() {
             });
             link.classList.add('active');
 
-            // Fechar menu mobile se estiver aberto
-            const nav = document.querySelector('nav');
-            if (nav.classList.contains('active')) {
-                nav.classList.remove('active');
-            }
+            // Fechar menu após selecionar uma opção
+            mainNav.classList.remove('active');
+            const icon = menuToggle.querySelector('i');
+            icon.classList.remove('fa-times');
+            icon.classList.add('fa-bars');
+            menuToggle.setAttribute('aria-label', 'Abrir menu de navegação');
 
             // Scroll suave para o topo
             window.scrollTo({ top: 0, behavior: 'smooth' });
@@ -183,58 +201,17 @@ function configurarNavegacao() {
     });
 }
 
-// ===== CONTROLE DO HEADER FIXO COM SCROLL =====
-function configurarHeaderScroll() {
-    window.addEventListener("scroll", function() {
-        const header = document.querySelector("header");
-        const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
-        
-        // Verificar se a página é rolável
-        const isScrollable = document.documentElement.scrollHeight > window.innerHeight;
-
-        // Se a página não for rolável, sempre mostrar o header
-        if (!isScrollable) {
-            header.classList.remove("hide");
-            return;
-        }
-
-        // Se a página for rolável, aplicar lógica de esconder/mostrar
-        if (scrollTop > scrollThreshold) {
-            if (scrollTop > lastScrollTop) {
-                // Scrolling down - esconde o header
-                header.classList.add("hide");
-            } else {
-                // Scrolling up - mostra o header
-                header.classList.remove("hide");
-            }
-        } else {
-            // Próximo ao topo - sempre mostra o header
-            header.classList.remove("hide");
-        }
-
-        lastScrollTop = scrollTop <= 0 ? 0 : scrollTop;
-    }, { passive: true });
-}
-
-// ===== MENU TOGGLE MOBILE =====
-function configurarMenuMobile() {
-    const menuToggle = document.querySelector('.menu-toggle');
-    const nav = document.querySelector('nav');
-
-    if (menuToggle && nav) {
-        menuToggle.addEventListener('click', () => {
-            nav.classList.toggle('active');
-            
-            // Alterar ícone do botão
+// ===== FECHAR MENU AO CLICAR FORA =====
+function fecharMenuAoClicarFora(event) {
+    if (mainNav.classList.contains('active')) {
+        // Verificar se o clique foi fora do menu e do botão
+        if (!mainNav.contains(event.target) && !menuToggle.contains(event.target)) {
+            mainNav.classList.remove('active');
             const icon = menuToggle.querySelector('i');
-            if (nav.classList.contains('active')) {
-                icon.classList.remove('fa-bars');
-                icon.classList.add('fa-times');
-            } else {
-                icon.classList.remove('fa-times');
-                icon.classList.add('fa-bars');
-            }
-        });
+            icon.classList.remove('fa-times');
+            icon.classList.add('fa-bars');
+            menuToggle.setAttribute('aria-label', 'Abrir menu de navegação');
+        }
     }
 }
 
@@ -246,11 +223,13 @@ document.addEventListener("DOMContentLoaded", () => {
     // Configurar navegação entre seções
     configurarNavegacao();
 
-    // Configurar comportamento do header com scroll
-    configurarHeaderScroll();
+    // Configurar botão de toggle do menu
+    if (menuToggle) {
+        menuToggle.addEventListener('click', toggleMenu);
+    }
 
-    // Configurar menu mobile
-    configurarMenuMobile();
+    // Fechar menu ao clicar fora
+    document.addEventListener('click', fecharMenuAoClicarFora);
 
     // Ativar seção "Sobre" por padrão
     document.querySelector('section#Sobre').classList.add('active');
@@ -261,30 +240,14 @@ document.addEventListener("DOMContentLoaded", () => {
     }, 100);
 });
 
-// ===== OTIMIZAÇÃO DE PERFORMANCE =====
-// Debounce para eventos de scroll
-function debounce(func, wait) {
-    let timeout;
-    return function executedFunction(...args) {
-        const later = () => {
-            clearTimeout(timeout);
-            func(...args);
-        };
-        clearTimeout(timeout);
-        timeout = setTimeout(later, wait);
-    };
-}
-
-// ===== ACESSIBILIDADE =====
-// Adicionar suporte para navegação por teclado
+// ===== ACESSIBILIDADE - FECHAR MENU COM TECLA ESC =====
 document.addEventListener('keydown', (e) => {
-    if (e.key === 'Escape') {
-        const nav = document.querySelector('nav');
-        if (nav.classList.contains('active')) {
-            nav.classList.remove('active');
-            const icon = document.querySelector('.menu-toggle i');
-            icon.classList.remove('fa-times');
-            icon.classList.add('fa-bars');
-        }
+    if (e.key === 'Escape' && mainNav.classList.contains('active')) {
+        mainNav.classList.remove('active');
+        const icon = menuToggle.querySelector('i');
+        icon.classList.remove('fa-times');
+        icon.classList.add('fa-bars');
+        menuToggle.setAttribute('aria-label', 'Abrir menu de navegação');
+        menuToggle.focus(); // Retornar foco ao botão
     }
 });

@@ -38,7 +38,7 @@ body {
   background: linear-gradient(135deg, var(--bg-primary) 0%, #0f1428 100%);
   color: var(--text-primary);
   line-height: 1.7;
-  padding-top: 100px;
+  padding-top: 90px;
   min-height: 100vh;
 }
 
@@ -60,14 +60,7 @@ header {
   padding: 1.2rem 0;
   box-shadow: 0 4px 20px var(--shadow);
   z-index: 1000;
-  transition: var(--transition);
   border-bottom: 1px solid var(--border-color);
-}
-
-/* Esconde o header suavemente quando há scroll */
-header.hide {
-  transform: translateY(-100%);
-  opacity: 0;
 }
 
 .header-content {
@@ -91,29 +84,62 @@ header.hide {
   margin-top: 0.2rem;
 }
 
+/* ===== BOTÃO DE TOGGLE DO MENU ===== */
 .menu-toggle {
-  display: none;
-  background: var(--bg-card);
-  border: 1px solid var(--border-color);
-  color: var(--accent-primary);
+  display: block;
+  background: var(--accent-primary);
+  border: 2px solid var(--accent-primary);
+  color: var(--bg-primary);
   font-size: 1.5rem;
-  padding: 0.5rem 0.8rem;
-  border-radius: 8px;
+  padding: 0.6rem 1rem;
+  border-radius: 10px;
   cursor: pointer;
   transition: var(--transition);
+  box-shadow: 0 4px 15px rgba(100, 255, 218, 0.3);
 }
 
 .menu-toggle:hover {
-  background: var(--bg-hover);
+  background: var(--accent-hover);
+  border-color: var(--accent-hover);
   transform: scale(1.05);
+  box-shadow: 0 6px 20px rgba(100, 255, 218, 0.5);
+}
+
+.menu-toggle:active {
+  transform: scale(0.95);
 }
 
 /* ===== NAVEGAÇÃO ===== */
+nav {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.4s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.3s ease;
+  opacity: 0;
+}
+
+nav.active {
+  max-height: 500px;
+  opacity: 1;
+  margin-top: 1rem;
+}
+
 nav ul {
   display: flex;
   flex-wrap: wrap;
   list-style: none;
   gap: 0.7rem;
+  animation: slideDown 0.4s ease-out;
+}
+
+@keyframes slideDown {
+  from {
+    transform: translateY(-10px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
 }
 
 nav ul li a {
@@ -531,11 +557,7 @@ footer i {
 /* ===== RESPONSIVIDADE ===== */
 @media (max-width: 768px) {
   body {
-    padding-top: 140px;
-  }
-
-  .header-content {
-    margin-bottom: 0.8rem;
+    padding-top: 100px;
   }
 
   .header-text h1 {
@@ -544,21 +566,6 @@ footer i {
 
   .header-text h2 {
     font-size: 0.9rem;
-  }
-
-  .menu-toggle {
-    display: block;
-  }
-
-  nav {
-    max-height: 0;
-    overflow: hidden;
-    transition: max-height 0.3s ease;
-  }
-
-  nav.active {
-    max-height: 400px;
-    margin-top: 1rem;
   }
 
   nav ul {
@@ -606,7 +613,7 @@ footer i {
 
 @media (max-width: 480px) {
   body {
-    padding-top: 160px;
+    padding-top: 110px;
   }
 
   .header-text h1 {
@@ -619,5 +626,10 @@ footer i {
 
   .content-card {
     padding: 1.5rem;
+  }
+
+  .menu-toggle {
+    font-size: 1.3rem;
+    padding: 0.5rem 0.8rem;
   }
 }
