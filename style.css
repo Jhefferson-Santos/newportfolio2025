@@ -115,9 +115,11 @@ nav {
   overflow: hidden;
   transition: max-height 0.4s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.3s ease;
   opacity: 0;
+  display: none; /* Hide navigation by default */
 }
 
 nav.active {
+  display: block; /* Show when active */
   max-height: 500px;
   opacity: 1;
   margin-top: 1rem;
