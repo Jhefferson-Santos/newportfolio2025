@@ -2,208 +2,217 @@
 <html lang="pt-br">
 <head>
     <meta charset="UTF-8" />
-    <!-- Define a codificação de caracteres como UTF-8, permitindo acentos e caracteres especiais -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <!-- Configura a responsividade, ajustando a largura ao dispositivo com escala inicial de 1 -->
     <meta name="description" content="Portfólio de Jhefferson Santos, Desenvolvedor Júnior em Engenharia de Software" />
-    <!-- Define a descrição do site para SEO e acessibilidade -->
-    <title>Jhefferson Santos</title>
-    <!-- Título da página exibido na aba do navegador -->
+    <meta name="author" content="Jhefferson Santos" />
+    <meta name="keywords" content="desenvolvedor, portfólio, engenharia de software, desenvolvedor júnior, estágio" />
+    <title>Jhefferson Santos | Desenvolvedor Júnior</title>
 
     <!-- Fonts e FontAwesome -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <!-- Estabelece conexão prévia com o servidor do Google Fonts para melhorar o desempenho -->
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <!-- Conexão prévia com o servidor de fontes estáticas do Google -->
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet" />
-    <!-- Importa a fonte Roboto com pesos 400 (normal) e 700 (negrito) -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <!-- Importa o FontAwesome para ícones como WhatsApp e LinkedIn -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
     <!-- CSS -->
     <link rel="stylesheet" href="style.css" />
-    <!-- Importa o arquivo de estilos CSS -->
 </head>
+
 <body>
-    <header>
+    <header id="main-header">
         <div class="container">
-            <h1>Jhefferson Santos</h1>
-            <!-- Nome principal exibido no cabeçalho -->
-            <h2>Desenvolvedor Júnior</h2>
-            <!-- Subtítulo indicando a profissão -->
+            <div class="header-content">
+                <div class="header-text">
+                    <h1>Jhefferson Santos</h1>
+                    <h2>Desenvolvedor Júnior</h2>
+                </div>
+                <button class="menu-toggle" aria-label="Abrir menu de navegação">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
             <nav aria-label="Navegação principal">
                 <ul>
                     <li><a href="#Sobre" class="active">Sobre</a></li>
-                    <li><a href="#Formacao">Formação Acadêmica</a></li>
+                    <li><a href="#Formacao">Formação</a></li>
+                    <li><a href="#Habilidades">Habilidades</a></li>
                     <li><a href="#Projetos">Projetos</a></li>
-                    <li><a href="#Contatos">Contatos</a></li>
-                    <li><a href="#Habilidades">Habilidades e Experiências</a></li>
                     <li><a href="#Objetivos">Objetivos</a></li>
-                    <li><a href="#Jogos">Jogos</a></li>
+                    <li><a href="#Contatos">Contatos</a></li>
                 </ul>
             </nav>
-            <!-- Menu de navegação com links para as seções -->
         </div>
     </header>
 
     <main>
         <section id="Sobre" class="container active">
-            <h2>Sobre mim</h2>
-            <p>
-               Olá! Sou Jhefferson Santos, tenho 20 anos e sou estudante de Engenharia de Software na USJT (6º semestre), com bolsa de estudos e uma grande motivação para crescer na área de tecnologia 🚀.
-            </p>
-            <p>
-                Iniciei como estagiário de suporte técnico, onde tive a oportunidade de aplicar e expandir meus conhecimentos, desenvolvendo uma base sólida em lógica, sistemas e processos. Após a efetivação como analista, passei a atuar diretamente na implantação de sistemas, execução de testes, atendimento a clientes e suporte contínuo ao time de desenvolvimento.
-            </p>
-            <p>
-                Atualmente, sou analista de sistemas, responsável pela validação de regras de negócio, testes de correções e participação em dailies com as equipes técnicas. Também apoio desenvolvedores e técnicos internos, realizando auditorias em PRs e documentações, sempre com o foco em garantir a qualidade e continuidade dos serviços.
-            </p>
-            <p>
-                Estou em transição para a área de desenvolvimento e busco novas oportunidades como estagiário ou desenvolvedor. Tenho me dedicado ao estudo de C#, .NET, Python, JavaScript e práticas de desenvolvimento web, com o objetivo de me tornar um desenvolvedor full stack. Já tive experiências com testes, criei checklists para QA e entendo a importância da comunicação entre áreas para garantir a qualidade e a eficiência nas entregas.
-            <p>
-                Estou sempre em busca de novos desafios e oportunidades para crescer e aprimorar minhas habilidades. Agradeço pela oportunidade de compartilhar minha trajetória e, no meu portfólio, você encontrará projetos e experiências que refletem esse caminho.
-            </p>
+            <div class="section-header">
+                <h2><i class="fas fa-user"></i> Sobre mim</h2>
+            </div>
+            <div class="content-card">
+                <p>
+                    Olá! Sou <strong>Jhefferson Santos</strong>, tenho 20 anos e sou estudante de <strong>Engenharia de Software</strong> na USJT (6º semestre), com bolsa de estudos e uma grande motivação para crescer na área de tecnologia.
+                </p>
+                <p>
+                    Iniciei como estagiário de suporte técnico, onde tive a oportunidade de aplicar e expandir meus conhecimentos, desenvolvendo uma base sólida em lógica, sistemas e processos. Após a efetivação como analista, passei a atuar diretamente na implantação de sistemas, execução de testes, atendimento a clientes e suporte contínuo ao time de desenvolvimento.
+                </p>
+                <p>
+                    Atualmente, sou <strong>analista de sistemas</strong>, responsável pela validação de regras de negócio, testes de correções e participação em dailies com as equipes técnicas. Também apoio desenvolvedores e técnicos internos, realizando auditorias em PRs e documentações, sempre com o foco em garantir a qualidade e continuidade dos serviços.
+                </p>
+                <p>
+                    Estou em transição para a área de desenvolvimento e busco novas oportunidades como <strong>estagiário ou desenvolvedor júnior</strong>. Tenho me dedicado ao estudo de C#, .NET, Python, JavaScript e práticas de desenvolvimento web, com o objetivo de me tornar um desenvolvedor full stack. Já tive experiências com testes, criei checklists para QA e entendo a importância da comunicação entre áreas para garantir a qualidade e a eficiência nas entregas.
+                </p>
+                <p>
+                    Estou sempre em busca de novos desafios e oportunidades para crescer e aprimorar minhas habilidades. Agradeço pela oportunidade de compartilhar minha trajetória e, no meu portfólio, você encontrará projetos e experiências que refletem esse caminho.
+                </p>
+            </div>
         </section>
-        <!-- Seção "Sobre" com informações pessoais e profissionais -->
 
         <section id="Formacao" class="container">
-            <h2>Formação Acadêmica</h2>
-            <ul>
-                <li>
-                    <h3>Engenharia de Software</h3>
-                    <p>Universidade São Judas Tadeu - 12/2026</p>
-                </li>
-                <li>
-                    <h3>Técnico em Mecatrônica</h3>
-                    <p>SENAI Roberto Simonsen - 06/2023</p>
-                </li>
-                <li>
-                    <h3>Ensino médio com habilitação técnica em Automação Industrial</h3>
-                    <p>Etec Gildo Marçal Bezerra Brandão - 12/2022</p>
-                </li>
-            </ul>
-        </section>
-        <!-- Seção "Formação Acadêmica" listando cursos e instituições -->
-
-        <section id="Projetos" class="container">
-            <h2>
-                Projetos
-                <a href="https://github.com/Jhefferson-Santos" target="_blank" title="Ver repositórios no GitHub">
-                    <img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/github.svg" alt="GitHub" class="github-icon" />
-                </a>
-            </h2>
-            <div class="github-card">
-                <div class="lang-list">
-                    <h2>
-                        <img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/github.svg" alt="GitHub" class="github-icon" />
-                        Linguagens mais usadas
-                    </h2>
-                    <ul id="language-list" aria-label="Lista de linguagens mais usadas no GitHub"></ul>
+            <div class="section-header">
+                <h2><i class="fas fa-graduation-cap"></i> Formação Acadêmica</h2>
+            </div>
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-marker"></div>
+                    <div class="timeline-content">
+                        <h3>Engenharia de Software</h3>
+                        <p class="institution">Universidade São Judas Tadeu</p>
+                        <p class="date"><i class="fas fa-calendar"></i> Conclusão: Dezembro/2026</p>
+                    </div>
                 </div>
-                <canvas id="languageChart" aria-label="Gráfico de linguagens mais usadas no GitHub"></canvas>
+                <div class="timeline-item">
+                    <div class="timeline-marker"></div>
+                    <div class="timeline-content">
+                        <h3>Técnico em Mecatrônica</h3>
+                        <p class="institution">SENAI Roberto Simonsen</p>
+                        <p class="date"><i class="fas fa-calendar"></i> Conclusão: Junho/2023</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-marker"></div>
+                    <div class="timeline-content">
+                        <h3>Ensino Médio com Habilitação Técnica em Automação Industrial</h3>
+                        <p class="institution">Etec Gildo Marçal Bezerra Brandão</p>
+                        <p class="date"><i class="fas fa-calendar"></i> Conclusão: Dezembro/2022</p>
+                    </div>
+                </div>
             </div>
         </section>
-        <!-- Seção "Projetos" com link para o GitHub e exibição de linguagens -->
-
-        <section id="Contatos" class="container">
-            <h2>Contatos</h2>
-            <h3>Entre em contato comigo clicando nos ícones abaixo</h3>
-            <ul class="icon-list" aria-label="Links de contato">
-                <li>
-                    <a href="https://api.whatsapp.com/send/?phone=5511984952923&text=Ol%C3%A1+Jhefferson%2C+tudo+bem%3F" target="_blank" aria-label="Contato via WhatsApp">
-                        <i class="fab fa-whatsapp"></i>
-                    </a>
-                </li>
-                <li>
-                    <a href="https://www.linkedin.com/in/jhefferson-vergara-santos-68016b22b/?originalSubdomain=br" target="_blank" aria-label="Perfil no LinkedIn">
-                        <i class="fab fa-linkedin"></i>
-                    </a>
-                </li>
-                <li>
-                    <a href="mailto:jvergarasantos25@gmail.com?subject=Assunto%20do%20Email&body=Ol%C3%A1%20Jhefferson,%20tudo%20bem?" target="_blank" aria-label="Enviar e-mail">
-                        <i class="fas fa-envelope"></i>
-                    </a>
-                </li>
-            </ul>
-        </section>
-        <!-- Seção "Contatos" com links para WhatsApp, LinkedIn e e-mail -->
 
         <section id="Habilidades" class="container">
-            <h2>Habilidades Técnicas</h2>
-            <ul>
-                <li>C#</li>
-                <li>Java</li>
-                <li>JavaScript</li>
-                <li>.NET</li>
-                <li>Spring Boot</li>
-                <li>SQL</li>
-                <li>Linux,Windows</li>
-            </ul>
-
-            <h2>Experiências Acadêmicas</h2>
-            <ul>
-                <li>Python</li>
-                <li>APIs REST</li>
-                <li>Node.js</li>
-            
-            </ul>
-        </section>
-        <!-- Seção "Habilidades" listando habilidades técnicas e acadêmicas -->
-
-        <section id="Objetivos" class="container">
-            <h2>Meus Objetivos para 2025</h2>
-            <p>
-                Em 2025, meu principal objetivo é ingressar no mercado de desenvolvimento de software. Busco uma oportunidade como desenvolvedor júnior, estagiário ou trainee, onde eu possa aplicar minha paixão por tecnologia, colocar em prática o que venho estudando e evoluir continuamente como profissional na área.
-            </p>
-            <p>
-                Meu objetivo é desenvolver aplicações robustas e dinâmicas, para o qual estou aprimorando minhas habilidades técnicas em programação. Atualmente, foco em JavaScript para interfaces, ao mesmo tempo em que estudo C# .NET e python. Visando versatilidade e preparo para os desafios do mercado, também estou explorando API REST e SQL.
-            </p>
-            <p>
-                Minha jornada rumo ao desenvolvimento full stack é pavimentada com dedicação, disciplina e foco! A cada novo aprendizado, sinto que meu sonho de criar soluções inovadoras e impactantes no mundo da tecnologia se torna mais real!
-            </p>
-        </section>
-        <!-- Seção "Objetivos" com metas para 2025 -->
-
-        <section id="Jogos" class="container">
-            <h2>
-                Seja muito bem-vindo(a)! Antes de mergulharmos na minha história, que tal um desafio para quebrar o gelo? Vamos jogar um jogo de adivinhação e descontrair juntos!
-            </h2>
-            <div id="jogo-adivinhacao">
-                <h3>Boa Sorte! :) </h3>
-                <p>Tente adivinhar o número, de 1 a 50. Você tem cinco tentativas!</p>
-                <div class="game-controls">
-                    <input type="number" id="palpite" placeholder="Digite seu palpite" min="1" max="50" aria-label="Palpite para o jogo de adivinhação" />
-                    <button id="btn-palpite" aria-label="Enviar palpite">Enviar Palpite</button>
-                    <button id="btn-reiniciar" aria-label="Reiniciar jogo" style="display: none;">Jogar Novamente</button>
+            <div class="section-header">
+                <h2><i class="fas fa-code"></i> Habilidades e Experiências</h2>
+            </div>
+            <div class="skills-grid">
+                <div class="skill-category">
+                    <h3><i class="fas fa-laptop-code"></i> Habilidades Técnicas</h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag">C#</span>
+                        <span class="skill-tag">.NET</span>
+                        <span class="skill-tag">Java</span>
+                        <span class="skill-tag">Spring Boot</span>
+                        <span class="skill-tag">JavaScript</span>
+                        <span class="skill-tag">SQL</span>
+                        <span class="skill-tag">Linux</span>
+                        <span class="skill-tag">Windows</span>
+                    </div>
                 </div>
-                <p id="resultado" aria-live="polite"></p>
-                <p id="tentativas-restantes"></p>
+                <div class="skill-category">
+                    <h3><i class="fas fa-flask"></i> Experiências Acadêmicas</h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag">Python</span>
+                        <span class="skill-tag">APIs REST</span>
+                        <span class="skill-tag">Node.js</span>
+                        <span class="skill-tag">Git & GitHub</span>
+                        <span class="skill-tag">HTML & CSS</span>
+                    </div>
+                </div>
             </div>
         </section>
-        <!-- Seção "Jogos" com um jogo interativo de adivinhação -->
+
+        <section id="Projetos" class="container">
+            <div class="section-header">
+                <h2>
+                    <i class="fas fa-folder-open"></i> Projetos
+                    <a href="https://github.com/Jhefferson-Santos" target="_blank" title="Ver repositórios no GitHub" class="github-link">
+                        <i class="fab fa-github"></i>
+                    </a>
+                </h2>
+            </div>
+            <div class="github-stats">
+                <div class="stats-card">
+                    <h3><i class="fab fa-github"></i> Linguagens mais usadas</h3>
+                    <ul id="language-list" aria-label="Lista de linguagens mais usadas no GitHub"></ul>
+                </div>
+                <div class="stats-card chart-container">
+                    <canvas id="languageChart" aria-label="Gráfico de linguagens mais usadas no GitHub"></canvas>
+                </div>
+            </div>
+            <div class="repos-container"></div>
+        </section>
+
+        <section id="Objetivos" class="container">
+            <div class="section-header">
+                <h2><i class="fas fa-bullseye"></i> Meus Objetivos para 2025</h2>
+            </div>
+            <div class="content-card">
+                <p>
+                    Em 2025, meu principal objetivo é ingressar no mercado de desenvolvimento de software. Busco uma oportunidade como <strong>desenvolvedor júnior, estagiário ou trainee</strong>, onde eu possa aplicar minha paixão por tecnologia, colocar em prática o que venho estudando e evoluir continuamente como profissional na área.
+                </p>
+                <p>
+                    Meu objetivo é desenvolver aplicações robustas e dinâmicas, para o qual estou aprimorando minhas habilidades técnicas em programação. Atualmente, foco em <strong>JavaScript</strong> para interfaces, ao mesmo tempo em que estudo <strong>C# .NET</strong> e <strong>Python</strong>. Visando versatilidade e preparo para os desafios do mercado, também estou explorando <strong>API REST</strong> e <strong>SQL</strong>.
+                </p>
+                <p>
+                    Minha jornada rumo ao desenvolvimento full stack é pavimentada com dedicação, disciplina e foco! A cada novo aprendizado, sinto que meu sonho de criar soluções inovadoras e impactantes no mundo da tecnologia se torna mais real!
+                </p>
+            </div>
+        </section>
+
+        <section id="Contatos" class="container">
+            <div class="section-header">
+                <h2><i class="fas fa-envelope"></i> Contatos</h2>
+            </div>
+            <div class="content-card">
+                <p class="contact-intro">Entre em contato comigo através dos canais abaixo:</p>
+                <ul class="contact-list" aria-label="Links de contato">
+                    <li>
+                        <a href="https://api.whatsapp.com/send/?phone=5511984952923&text=Ol%C3%A1+Jhefferson%2C+tudo+bem%3F" target="_blank" aria-label="Contato via WhatsApp">
+                            <i class="fab fa-whatsapp"></i>
+                            <span>WhatsApp</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://www.linkedin.com/in/jhefferson-vergara-santos-68016b22b/?originalSubdomain=br" target="_blank" aria-label="Perfil no LinkedIn">
+                            <i class="fab fa-linkedin"></i>
+                            <span>LinkedIn</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="mailto:jvergarasantos25@gmail.com?subject=Contato%20via%20Portf%C3%B3lio&body=Ol%C3%A1%20Jhefferson,%20tudo%20bem?" target="_blank" aria-label="Enviar e-mail">
+                            <i class="fas fa-envelope"></i>
+                            <span>E-mail</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://github.com/Jhefferson-Santos" target="_blank" aria-label="Perfil no GitHub">
+                            <i class="fab fa-github"></i>
+                            <span>GitHub</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </section>
     </main>
 
     <footer>
         <div class="container">
-            <p>&copy; Jhefferson Vergara Santos</p>
-            <p>Outubro 2025</p>
+            <p>&copy; 2025 Jhefferson Vergara Santos. Todos os direitos reservados.</p>
+            <p>Desenvolvido com <i class="fas fa-heart"></i> e <i class="fas fa-coffee"></i></p>
         </div>
     </footer>
-    <!-- Rodapé com informações de direitos autorais -->
 
     <!-- Scripts -->
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    <!-- Importa a biblioteca Chart.js para o gráfico de linguagens -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
     <script src="script.js"></script>
-    <!-- Importa o arquivo JavaScript personalizado -->
 </body>
 </html>
-
-
-
-
-
-
-
-
-
