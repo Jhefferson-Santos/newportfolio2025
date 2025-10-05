@@ -233,11 +233,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
     // Ativar seção "Sobre" por padrão
     document.querySelector('section#Sobre').classList.add('active');
-
-    // Adicionar animação de entrada suave
-    setTimeout(() => {
-        document.body.style.opacity = '1';
-    }, 100);
 });
 
 // ===== ACESSIBILIDADE - FECHAR MENU COM TECLA ESC =====
